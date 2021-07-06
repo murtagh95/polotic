@@ -1,0 +1,9 @@
+{% extends "hola/layout.html" %}
+
+{% block body %}
+    <!-- Para utilizar los datos pasados por contexto debemos llamar al dato
+     por el nombre de la key que le pusimos en el diccionario -->
+    <h2> ¡Hola, <span style="color: blue;">{{ nombre }} </span> ! </h2>
+    <p>Es un gusto saludarte</p>
+
+{% endblock %}

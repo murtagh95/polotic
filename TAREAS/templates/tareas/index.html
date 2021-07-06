@@ -1,0 +1,17 @@
+{% extends "hola/layout.html" %}
+
+{% block body %}
+    <h1>
+        ¡Hola mundo!
+    </h1>
+    <ul>
+        {% for una_tarea in tareas %}
+            <li> {{ una_tarea }} </li>
+        {% endfor %}
+    </ul>
+    <br><br>
+    <div class="acciones">
+        <a href="{% url 'TAREAS:agregar' %}" >Agregar una nueva tarea</a>
+    </div>
+
+{% endblock %}

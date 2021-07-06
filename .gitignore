@@ -1,0 +1,4 @@
+.env
+.vscode
+manage.py
+db.sqlite3

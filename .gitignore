@@ -2,3 +2,5 @@
 .vscode
 manage.py
 db.sqlite3
+migrations
+AEROLINEA/__pycache__

@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
+# Establesco los permisos
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
 from .models import Vuelo, Pasajero
 
 
@@ -9,6 +13,8 @@ def index(request):
         'lista_vuelos': Vuelo.objects.all()
     })
 
+# Restringimos el acceso por el siguiente permiso
+@permission_required('AEROLINEA.view_vuelo')
 def vuelo(request, vuelo_id):
     # Busco el vuelo por id
     vuelo = Vuelo.objects.get(id=vuelo_id)
@@ -22,6 +28,7 @@ def vuelo(request, vuelo_id):
         "no_son_pasajeros": no_son_pasajeros,
     })
 
+@login_required
 def reserva(request, vuelo_id):
     if request.method == "POST": 
         vuelo = Vuelo.objects.get(pk=vuelo_id)

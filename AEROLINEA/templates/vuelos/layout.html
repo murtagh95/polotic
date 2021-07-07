@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="{% static 'hola/estilos.css' %}" >
 </head>
 <body>
-
-    {% block body %}
-
-    {% endblock %}
-
+    {% if user.is_authenticated %}
+        <p>Usuario: {{ user.get_username }}</p>
+        <p><a href="{% url 'logout'%}?next={{request.path}}">Desconectarse</a></p>
+        {% block body %}
+        
+        {% endblock %}
+    {% else %}
+        <p>No podra visualizar los datos de los vuelos sin estar conectado.</p>
+        <p><a href="{% url 'login'%}?next={{request.path}}">Acceder</a></p>
+    {% endif %}
 </body>
 </html>

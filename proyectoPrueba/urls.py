@@ -22,4 +22,6 @@ urlpatterns = [
     path('prueba/', include('pruebaApp.urls')),
     path('TAREAS/', include('TAREAS.urls')),
     path('AEROLINEA/', include('AEROLINEA.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('registrarse/', include('USUARIOS.urls')),
 ]

@@ -3,4 +3,4 @@
 manage.py
 db.sqlite3
 migrations
-AEROLINEA/__pycache__
+__pycache__

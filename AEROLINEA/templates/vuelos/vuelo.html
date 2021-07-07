@@ -1,0 +1,32 @@
+{% extends "hola/layout.html" %}
+
+{% block body %}
+    <h1>Vuelo</h1>
+    <h3>Lista de Pasajeros</h3>
+
+    <ul>
+        {% for un_pasajero in pasajeros %}
+            <li>{{ un_pasajero }}</li>
+        {% empty %}
+            <!-- Se ejecuta si pasajeros esta vacio -->
+            <li>No hay pasajeros registrados.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{%  url 'AEROLINEA:index' %}">Volver atras</a>
+
+    <h3>Reserva</h3>
+    
+    <form action="{% url 'AEROLINEA:reserva' vuelo.id %}" method="POST">
+        {% csrf_token %}
+        <select name="pasajero" >
+            {% for un_pasajero in no_son_pasajeros %}
+                <option value="{{un_pasajero.id}}">{{ un_pasajero }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Reservar">
+
+    </form>
+    
+
+{% endblock %}

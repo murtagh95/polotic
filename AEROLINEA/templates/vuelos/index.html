@@ -6,7 +6,7 @@
     </h1>
     <ul>
         {% for un_vuelo in lista_vuelos %}
-            <li> Vuelo #{{un_vuelo.id}}: {{un_vuelo.origen}} hacia {{un_vuelo.destino}} </li>
+            <li><a href="{% url 'AEROLINEA:vuelo' un_vuelo.id %}"> Vuelo #{{un_vuelo.id}}</a>: {{un_vuelo.origen}} hacia {{un_vuelo.destino}} </li>
         {% endfor %}
     </ul>
 
